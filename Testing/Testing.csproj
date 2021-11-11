@@ -45,6 +45,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CKM_CommonFunction, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>RequireDLL\CKM_CommonFunction.dll</HintPath>
+    </Reference>
+    <Reference Include="CKM_DataLayer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>RequireDLL\CKM_DataLayer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -150,6 +158,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="RequireDLL\CKM_CommonFunction.dll" />
+    <Content Include="RequireDLL\CKM_DataLayer.dll" />
+    <Content Include="RequireDLL\Newtonsoft.Json.dll" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -195,16 +206,6 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TestingBL\TestingBL.csproj">
-      <Project>{c4cb49bf-9a2b-41da-85dd-8b6a21668353}</Project>
-      <Name>TestingBL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TestingModel\TestingModel.csproj">
-      <Project>{252737b2-b5ae-45b3-b689-a2d12b6d8833}</Project>
-      <Name>TestingModel</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
