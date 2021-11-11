@@ -2,7 +2,7 @@
 
 namespace Testing_Model
 {
-    public class Class1
+    public class TestingModel
     {
     }
 }
