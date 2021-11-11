@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C4CB49BF-9A2B-41DA-85DD-8B6A21668353}</ProjectGuid>
+    <ProjectGuid>{0D1EF72E-091F-4323-A127-B3057A7AA18E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TestingBL</RootNamespace>
@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CKM_CommonFunction">
+      <HintPath>..\Testing\RequireDLL\CKM_CommonFunction.dll</HintPath>
+    </Reference>
+    <Reference Include="CKM_DataLayer">
+      <HintPath>..\Testing\RequireDLL\CKM_DataLayer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,11 +48,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestingBL.cs" />
+    <Compile Include="Testing_BL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestingModel\TestingModel.csproj">
-      <Project>{252737b2-b5ae-45b3-b689-a2d12b6d8833}</Project>
+      <Project>{2787e4b0-f3da-4f7e-a12c-78ec10d86469}</Project>
       <Name>TestingModel</Name>
     </ProjectReference>
   </ItemGroup>
