@@ -9,7 +9,7 @@ namespace Testing.Controllers
     public class TestingController : Controller
     {
         // GET: Testing
-        public ActionResult Index()
+        public ActionResult Testingindex()
         {
             return View();
         }
