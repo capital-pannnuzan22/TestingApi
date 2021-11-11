@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Animal_BL
+namespace Animal_Model
 {
-    public class AnimalBL
+    public class AnimalModel
     {
-
     }
 }
