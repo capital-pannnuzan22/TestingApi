@@ -9,7 +9,8 @@ namespace Testing.Controllers
     public class AnimalController : Controller
     {
         // GET: Animal
-        public ActionResult Index()
+        
+        public ActionResult AnimalList()
         {
             return View();
         }
