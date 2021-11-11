@@ -206,6 +206,14 @@
       <Project>{d7f86c92-bdd4-405d-90ef-5f80a18185d0}</Project>
       <Name>Animal_BL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TestingBL\TestingBL.csproj">
+      <Project>{0d1ef72e-091f-4323-a127-b3057a7aa18e}</Project>
+      <Name>TestingBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestingModel\TestingModel.csproj">
+      <Project>{2787e4b0-f3da-4f7e-a12c-78ec10d86469}</Project>
+      <Name>TestingModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
