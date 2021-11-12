@@ -23,14 +23,18 @@
     </div>
 </div>
 
-@section Scripts
+
+ @section Scripts
 {
-    <script type="text/javascript">
+        <script type="text/javascript">
         $(document).ready(function () {
-            var obj = {
-                ID: '',
+            var TestingInfo = {
+                ID:"05",
+                Title: "CKM1",
+                Description:"CKM",
+                Mode : "Delete"
             };
-            var response = CalltoApiController('@Url.Action("GetData", "api/TestingAPI")', obj);
+            var response = CalltoApiController('@Url.Action("TestingCUD", "api/TestingAPI")', TestingInfo);
             alert(response);
             //BindTable(response);
         });
@@ -68,7 +72,7 @@
         function AnimalEdit(row) {
             var currentRow = $(row).closest("tr");
             var data = $('#tbTesting').DataTable().row(currentRow).data();
-            var url = '@Url.Action("Testingindex", "Testing")?ID=' + data["ID"] + '&Mode=Edit';
+            var url = '@Url.Action("Testingindex", "Testing")?ID=' + data["ID"] + '&Mode=Insert';
             location.href = url;
         }
 
@@ -80,6 +84,6 @@
         }*@
 
 
-    </script>
-}
+                </script>
+            }
 
