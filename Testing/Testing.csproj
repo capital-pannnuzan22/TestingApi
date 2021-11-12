@@ -181,12 +181,13 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Animal\AnimalList.cshtml" />
-    <Content Include="Views\Animal\AnimalEntry.cshtml" />
+    <Content Include="Views\testing\TestingList.cshtml" />
+    <Content Include="Views\testing\Testingindex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Animal\" />
     <Folder Include="Views\testing\" />
   </ItemGroup>
   <ItemGroup>
