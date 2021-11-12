@@ -1,8 +1,7 @@
-﻿@{
+﻿@model Animal_Model.AnimalModel
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
 <div class="panel panel-inverse">
     <div class="panel-body">
         <div class="container-fluid" id="content_zip">
@@ -35,7 +34,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text text-info" id="basic-addon1"><i class="fas fa-marker"></i></span>
                                 </div>
-                                <input type="text" id="txtDescription" required maxlength="50" tabindex="2"
+                                <input type="text" id="txtDescription" required maxlength="50" tabindex="3"
                                        onkeydown="KeyDown(event,this,'btnSave')" class="form-control input-sm" />
                             </div>
                         </div>
@@ -43,7 +42,7 @@
                 </div>
             </div>
             <div class="div-centerbtn">
-                <button id="btnSave" onclick="SaveClick();"><i class="fa fa-save"></i>&nbsp;<span id="btnText">登録</span></button>
+                <button id="btnSave" onclick="SaveClick();"><i class="fa fa-save"></i>&nbsp;<span id="btnText">SAVE</span></button>
             </div>
         </div>
     </div>
@@ -51,7 +50,7 @@
 
 @section Scripts
 {
-<script type="text/javascript">
+    <script type="text/javascript">
     $(document).ready(function () {
         $("#txtAnimalCD").focus();
         function setDataFunction() {
@@ -116,14 +115,10 @@
 
     function SetData(data) {
         $("#txtAnimalCD").val(data[0].AnimalCD);
-        $("#txtAnimalName").val(data[0].AnimalName); 
+        $("#txtAnimalName").val(data[0].AnimalName);
         $("#txtDescription").val(data[0].Description);
     }
 
-</script>
+    </script>
 }
-
-
-
-
 
