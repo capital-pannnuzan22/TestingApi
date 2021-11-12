@@ -1,0 +1,63 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="panel panel-inverse">
+    <div class="panel-body">
+        <div class="container-fluid" id="content_zip">
+            <div class="row">
+                <div class="col-xl-12 col-md-12 col-sm-12 mb-2">
+                    <div id="divEntry" class="form-row">
+                        <div class="form-group col-xl-2 col-md-2 col-sm-12">
+                            <label class="required" for="txtAnimalCD">AnimalCD</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text text-info" id="basic-addon1"><i class="fas fa-marker"></i></span>
+                                </div>
+                                <input type="text" id="txtAnimalCD" required maxlength="20" tabindex="1"
+                                       onkeydown="KeyDown(event,this,'txtTitle')" class="form-control input-sm" />
+                            </div>
+                        </div>
+                        <div class="form-group col-xl-2 col-md-2 col-sm-12">
+                            <label class="required" for="txtTitle">Title</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text text-info" id="basic-addon1"><i class="fas fa-marker"></i></span>
+                                </div>
+                                <input type="text" id="txtTitle" required maxlength="50" tabindex="2"
+                                       onkeydown="KeyDown(event,this,'txtDescription')" class="form-control input-sm" />
+                            </div>
+                        </div>
+                        <div class="form-group col-xl-2 col-md-2 col-sm-12">
+                            <label class="required" for="txtDescription">Description</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text text-info" id="basic-addon1"><i class="fas fa-marker"></i></span>
+                                </div>
+                                <input type="text" id="txtDescription" required maxlength="50" tabindex="2"
+                                       onkeydown="KeyDown(event,this,'btnSave')" class="form-control input-sm" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="div-centerbtn">
+                <button id="btnSave" onclick="SaveClick();" class="btn pjmsbtn col-sm-12 col-md-2 col-lg-2 col-xl-2"><i class="fa fa-save"></i>&nbsp;<span id="btnText">登録</span></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    $(document).ready(function () {
+    
+    }
+}
+
+
+
+
+
