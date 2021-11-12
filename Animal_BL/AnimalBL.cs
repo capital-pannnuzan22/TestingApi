@@ -23,8 +23,6 @@ namespace Animal_BL
         {
             animalModel.Sqlprms = new SqlParameter[1];
             animalModel.Sqlprms[0] = new SqlParameter("@AnimalCD", animalModel.AnimalCD);
-            //animalModel.Sqlprms[1] = new SqlParameter("@AnimalName", animalModel.AnimalName);
-            //animalModel.Sqlprms[2] = new SqlParameter("@Description", animalModel.Description);
             return cKMDL.SelectJson("Animal_Select", ff.GetConnectionWithDefaultPath("TestingApi"), animalModel.Sqlprms);
         }
         public string AnimalCUD(AnimalModel animalModel)
