@@ -27,12 +27,18 @@
  @section Scripts
 {
         <script type="text/javascript">
-        $(document).ready(function () {
+            $(document).ready(function () {
+             var a = {
+                ID:'',
+                };
+                var response = CalltoApiController('@Url.Action("GetData", "api/TestingAPI")', a);
+                alert(response);
+
             var TestingInfo = {
-                ID:"05",
+                ID:"04",
                 Title: "CKM1",
                 Description:"CKM",
-                Mode : "Delete"
+                Mode : "Insert"
             };
             var response = CalltoApiController('@Url.Action("TestingCUD", "api/TestingAPI")', TestingInfo);
             alert(response);
