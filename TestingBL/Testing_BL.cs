@@ -67,8 +67,8 @@ namespace TestingBL
         public string TestingSelect(Testing_Model testingmodel)
         {
             cKMDL.UseTran = true;
-            testingmodel.Sqlprms = new SqlParameter[0];
-            //testingmodel.Sqlprms[0] = new SqlParameter("@ID", testingmodel.ID);
+            testingmodel.Sqlprms = new SqlParameter[1];
+            testingmodel.Sqlprms[0] = new SqlParameter("@ID", testingmodel.ID);
 
             return cKMDL.SelectJson("TestingSelect", ff.GetConnectionWithDefaultPath("ReactTest"), testingmodel.Sqlprms);
         }
