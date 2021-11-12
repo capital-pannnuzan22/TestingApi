@@ -28,20 +28,28 @@
 {
         <script type="text/javascript">
             $(document).ready(function () {
-             var a = {
-                ID:'',
+           
+                var a = {
+                    ID:'',
                 };
-                var response = CalltoApiController('@Url.Action("GetData", "api/TestingAPI")', a);
-                alert(response);
+                    var response = CalltoApiController('@Url.Action("GetData", "api/TestingAPI")', a);
+                    alert(response);
 
-            var TestingInfo = {
-                ID:"04",
-                Title: "CKM1",
-                Description:"CKM",
-                Mode : "Insert"
-            };
-            var response = CalltoApiController('@Url.Action("TestingCUD", "api/TestingAPI")', TestingInfo);
-            alert(response);
+                var TestingInfo = {
+                    ID: "06",
+                    Title: "CKM1",
+                    Description: "CKM",
+                    Mode: "Insert"
+                };
+
+                if (TestingInfo.Mode == 'Insert' || TestingInfo.Mode == 'Update' || TestingInfo.Mode == 'Delete') {
+
+                    var response = CalltoApiController('@Url.Action("TestingCUD", "api/TestingAPI")', TestingInfo);
+                    alert(response);
+                }    
+                else {
+                    alert("No Mode");
+                }
             //BindTable(response);
         });
 
