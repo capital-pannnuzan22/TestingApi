@@ -14,7 +14,7 @@ namespace Testing.Controllers
         {
             return View();
         }
-        public ActionResult AnimalEntry()
+        public ActionResult AnimalEntry1()
         {
             return View();
         }
