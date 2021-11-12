@@ -1,5 +1,76 @@
-﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿
+<div class="panel panel-inverse">
+    <div class="panel-body">
+        <table id="tblAnimal" class="table table-striped reducepadding table-bordered table-td-valign-middle" style="width:100%">
+            <thead>
+                <tr>
+                    <th style="width:20%"></th>
+                    <th style="width:30%">AnimalCD</th>
+                    <th style="width:30%">AnimalName</th>
+                    <th style="width:20%">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var obj = {
+                AnimalCD: '',
+            };
+            var response = CalltoApiController('@Url.Action("GetAnimal", "api/AnimalApi")', obj);
+            BindTable(response);
+        });
+
+        function BindTable(response) {
+            table = $('#tblAnimal').DataTable({
+                responsive: true,
+                data: JSON.parse(response),
+                datasrc: "",
+                destroy: true,
+                "paging": true,
+                "ordering": true,
+                "columns": [
+                    { "data": "AnimalCD", "className": "align-center" },
+                    { "data": "AnimalCD", "className": "align-center" },
+                    { "data": "AnimalName", "className": "align-center" },
+                    { "data": "Description", "className": "align-center"},
+                ],
+                "columnDefs": [{
+                    "targets": 0,
+                    "data": "AnimalCD",
+                    "render": function (data) {
+                        return '<button type="button" class="btn btn-info" style="width:50px;margin:3px;padding-top:3px;" title="変更" onclick="AnimalEdit(this)">変更<button type="button" class="btn btn-danger" style="width:50px;margin:3px;padding-top:3px;" title="削除" onclick="AnimalDelete(this)">削除</button>'
+
+                    },
+                }],
+                "oLanguage": {
+                    "sSearch": "検索条件"
+                }
+            });
+            $('div.dataTables_filter input', table.table().container()).focus();
+        }
+
+        function AnimalEdit(row) {
+            var currentRow = $(row).closest("tr");
+            var data = $('#tblAnimal').DataTable().row(currentRow).data();
+            var url = '@Url.Action("AnimalEntry", "Animal")?AnimalCD=' + data["AnimalCD"] + '&Mode=Edit';
+            location.href = url;
+        }
+
+        function AnimalDelete(row) {
+            var currentRow = $(row).closest("tr");
+            var data = $('#tblAnimal').DataTable().row(currentRow).data();
+            var url = '@Url.Action("AnimalEntry", "Animal")?AnimalCD=' + data["AnimalCD"] + '&Mode=Delete';
+            location.href = url;
+        }
+
+
+    </script>
 }
 
-<h1>Animal List</h1>

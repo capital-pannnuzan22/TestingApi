@@ -181,11 +181,12 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Animal\AnimalList.cshtml" />
+    <Content Include="Views\Animal\AnimalEntry.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Animal\" />
     <Folder Include="Views\testing\" />
   </ItemGroup>
   <ItemGroup>
@@ -205,6 +206,10 @@
     <ProjectReference Include="..\Animal_BL\Animal_BL.csproj">
       <Project>{d7f86c92-bdd4-405d-90ef-5f80a18185d0}</Project>
       <Name>Animal_BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Animal_Model\Animal_Model.csproj">
+      <Project>{8D9C2154-1301-426B-8D9B-007A877E30BF}</Project>
+      <Name>Animal_Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\TestingBL\TestingBL.csproj">
       <Project>{0d1ef72e-091f-4323-a127-b3057a7aa18e}</Project>

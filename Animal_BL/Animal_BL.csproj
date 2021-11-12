@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CKM_CommonFunction">
+      <HintPath>..\Testing\RequireDLL\CKM_CommonFunction.dll</HintPath>
+    </Reference>
+    <Reference Include="CKM_DataLayer">
+      <HintPath>..\Testing\RequireDLL\CKM_DataLayer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,6 +49,12 @@
   <ItemGroup>
     <Compile Include="AnimalBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Animal_Model\Animal_Model.csproj">
+      <Project>{8D9C2154-1301-426B-8D9B-007A877E30BF}</Project>
+      <Name>Animal_Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
