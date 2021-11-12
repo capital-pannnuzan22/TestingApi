@@ -13,6 +13,7 @@ namespace Testing.Controllers
         {
             Testing_BL languageBL = new Testing_BL();
             return Ok(languageBL.TestingSelect(testingmodel));
+
         }
 
         [HttpPost]
@@ -21,6 +22,7 @@ namespace Testing.Controllers
         {
             Testing_BL testingbl = new Testing_BL();
             return Ok(testingbl.TestingInsert(testingmodel));
+
         }
 
         [HttpPost]
