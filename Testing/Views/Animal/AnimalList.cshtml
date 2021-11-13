@@ -1,26 +1,49 @@
-﻿@*var obj = {
-        AnimalCD: '',
-    };
-    var response = CalltoApiController('@Url.Action("GetAnimal", "api/AnimalApi")', obj);
-    alert(response)*@
-
+﻿
 @section Scripts
 {
     <script type="text/javascript">
         $(document).ready(function () {
-                var obj = {
+            if ('Mode' == 'Insert' || 'Mode' == 'Update' || 'Mode' == 'Delete') {
+                let set = {
+                    AnimalCD: "a1",
+                    AnimalName: "Antt",
+                    Description: "CKM",
+                    Mode: "New"
+                };
+               let response1 = CalltoApiController('@Url.Action("AnimalCUD", "api/AnimalApi")', set);
+                alert(response1);
+
+                @*let put = {
+                    AnimalCD: "a7",
+                    AnimalName: "Ant",
+                    Description: "CKM",
+                    Mode: "Update"
+                };
+                let response2 = CalltoApiController('@Url.Action("AnimalCUD", "api/AnimalApi")', put);
+                alert(response2);
+
+                let del = {
+                    AnimalCD: "a1",
+                    AnimalName: "Ant",
+                    Description: "CKM",
+                    Mode: "Delete"
+                };
+                let response3 = CalltoApiController('@Url.Action("AnimalCUD", "api/AnimalApi")', del);
+                alert(response3);*@
+            }
+
+            else {
+                alert("No Mode");
+            }
+
+            @*let get = {
                 AnimalCD: '',
             };
-            var response1 = CalltoApiController('@Url.Action("GetAnimal", "api/AnimalApi")', obj);
-            alert(response1)
-            var a = {
-                AnimalCD:"a4",
-                AnimalName: "Ant",
-                Description:"CKM",
-                Mode: "New"
-            };
-            var response = CalltoApiController('@Url.Action("AnimalCUD", "api/AnimalApi")', a);
-            alert(response);
+            let response = CalltoApiController('@Url.Action("GetAnimal", "api/AnimalApi")', get);
+            alert(response)*@
+
+
+
         });
 
 
