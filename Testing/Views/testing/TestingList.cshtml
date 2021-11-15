@@ -28,76 +28,54 @@
 {
         <script type="text/javascript">
             $(document).ready(function () {
-           
                 var a = {
                     ID:'',
                 };
-                    var response = CalltoApiController('@Url.Action("GetData", "api/TestingAPI")', a);
-                    alert(response);
-
+                var response = CalltoApiController('@Url.Action("GetData", "api/TestingAPI")', a);
+                alert(response);
+               
                 var TestingInfo = {
-                    ID: "06",
+                    ID: "08",
                     Title: "CKM1",
                     Description: "CKM",
                     Mode: "Insert"
-                };
+                }; 
 
                 if (TestingInfo.Mode == 'Insert' || TestingInfo.Mode == 'Update' || TestingInfo.Mode == 'Delete') {
-
-                    var response = CalltoApiController('@Url.Action("TestingCUD", "api/TestingAPI")', TestingInfo);
-                    alert(response);
+                    if (TestingInfo.Mode == 'Insert') {
+                        var i = {
+                            ID: TestingInfo.ID,
+                        }
+                        var res = CalltoApiController('@Url.Action("GetData", "api/TestingAPI")', i);
+                        var data = JSON.parse(res);
+                        if (data.length > 0) {
+                            if (data[0]["ID"] == TestingInfo.ID) {
+                                alert("DataExit");
+                            }
+                        }
+                        else {
+                            var j = {
+                                ID: TestingInfo.ID,
+                                Title: TestingInfo.Title,
+                                Description: TestingInfo.Description,
+                                Mode: TestingInfo.Mode
+                            };
+                            var res1 = CalltoApiController('@Url.Action("TestingCUD", "api/TestingAPI")', j);
+                            alert(res1);
+                        }
+                    }
+                    else {
+                        var result = CalltoApiController('@Url.Action("TestingCUD", "api/TestingAPI")', TestingInfo);
+                        alert(result);
+                    }
+                        
                 }    
                 else {
                     alert("No Mode");
                 }
-            //BindTable(response);
-        });
-
-        @*function BindTable(response) {
-            debugger;
-            table = $('#tbTesting').DataTable({
-                responsive: true,
-                data: JSON.parse(response),
-                datasrc: "",
-                destroy: true,
-                "paging": true,
-                "ordering": true,
-                "columns": [
-                    { "data": "ID", "className": "align-center" },
-                    { "data": "Title", "className": "align-center" },
-                    { "data": "Description", "className": "align-center" },
-                    { "data": "UpdatedDate", "className": "align-center"},
-                ],
-                "columnDefs": [{
-                    "targets": 0,
-                    "data": "ID",
-                    "render": function (data) {
-                        return '<button type="button" class="btn btn-info" style="width:50px;margin:3px;padding-top:3px;" title="変更" onclick="AnimalEdit(this)">変更<button type="button" class="btn btn-danger" style="width:50px;margin:3px;padding-top:3px;" title="削除" onclick="AnimalDelete(this)">削除</button>'
-
-                    },
-                }],
-                "oLanguage": {
-                    "sSearch": "検索条件"
-                }
+                
             });
-            $('div.dataTables_filter input', table.table().container()).focus();
-        }
 
-        function AnimalEdit(row) {
-            var currentRow = $(row).closest("tr");
-            var data = $('#tbTesting').DataTable().row(currentRow).data();
-            var url = '@Url.Action("Testingindex", "Testing")?ID=' + data["ID"] + '&Mode=Insert';
-            location.href = url;
-        }
-
-        function AnimalDelete(row) {
-            var currentRow = $(row).closest("tr");
-            var data = $('#tbTesting').DataTable().row(currentRow).data();
-            var url = '@Url.Action("Testingindex", "Testing")?ID=' + data["ID"] + '&Mode=Delete';
-            location.href = url;
-        }*@
-
-
-                </script>
-            }
+        </script>
+}
 
