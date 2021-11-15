@@ -3,47 +3,43 @@
 {
     <script type="text/javascript">
         $(document).ready(function () {
-            if ('Mode' == 'Insert' || 'Mode' == 'Update' || 'Mode' == 'Delete') {
-                let set = {
-                    AnimalCD: "a1",
-                    AnimalName: "Antt",
-                    Description: "CKM",
-                    Mode: "New"
-                };
-               let response1 = CalltoApiController('@Url.Action("AnimalCUD", "api/AnimalApi")', set);
-                alert(response1);
-
-                @*let put = {
-                    AnimalCD: "a7",
-                    AnimalName: "Ant",
-                    Description: "CKM",
-                    Mode: "Update"
-                };
-                let response2 = CalltoApiController('@Url.Action("AnimalCUD", "api/AnimalApi")', put);
-                alert(response2);
-
-                let del = {
-                    AnimalCD: "a1",
-                    AnimalName: "Ant",
-                    Description: "CKM",
-                    Mode: "Delete"
-                };
-                let response3 = CalltoApiController('@Url.Action("AnimalCUD", "api/AnimalApi")', del);
-                alert(response3);*@
+            let AnimalInfo = {
+                AnimalCD: "a3",
+                AnimalName: "Ant",
+                Description: "CKM",
+                Mode: "Insert"
+            };
+            if (AnimalInfo.Mode == 'Insert' || AnimalInfo.Mode == 'Update' || AnimalInfo.Mode == 'Delete') {
+                if (AnimalInfo.Mode == 'Insert') {
+                        var i = {
+                            AnimalCD: AnimalInfo.AnimalCD,
+                        }
+                        var res = CalltoApiController('@Url.Action("GetAnimal", "api/AnimalApi")', i);
+                        var data = JSON.parse(res);
+                        if (data.length > 0) {
+                            if (data[0]["AnimalCD"] == AnimalInfo.AnimalCD) {
+                                alert("DataExit");
+                            }
+                        }
+                        else {
+                            var j = {
+                                AnimalCD: AnimalInfo.AnimalCD,
+                                AnimalName: AnimalInfo.AnimalName,
+                                Description: AnimalInfo.Description,
+                                Mode: AnimalInfo.Mode
+                            };
+                            var res1 = CalltoApiController('@Url.Action("AnimalCUD", "api/AnimalApi")', j);
+                            alert(res1);
+                        }
+                }
+                else {
+                    var result = CalltoApiController('@Url.Action("AnimalCUD", "api/AnimalApi")', AnimalInfo);
+                    alert(result);
+                }
             }
-
             else {
                 alert("No Mode");
             }
-
-            @*let get = {
-                AnimalCD: '',
-            };
-            let response = CalltoApiController('@Url.Action("GetAnimal", "api/AnimalApi")', get);
-            alert(response)*@
-
-
-
         });
 
 
