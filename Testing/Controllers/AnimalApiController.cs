@@ -11,9 +11,9 @@ namespace Testing.Controllers
 {
     public class AnimalApiController : ApiController
     {
-        [System.Web.Mvc.AcceptVerbs("GET", "POST")]
-        [System.Web.Mvc.HttpGet]
-        //[HttpPost]
+        //[System.Web.Mvc.AcceptVerbs("GET", "POST")]
+        //[System.Web.Mvc.HttpGet]
+        [HttpPost]
         public IHttpActionResult GetAnimal([FromBody] AnimalModel animalModel)
         {
             AnimalBL animalBL = new AnimalBL();
