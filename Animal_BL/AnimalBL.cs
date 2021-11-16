@@ -21,10 +21,10 @@ namespace Animal_BL
         }
         public string GetAnimal(AnimalModel animalModel)
         {
-            return "testApi";
-            //animalModel.Sqlprms = new SqlParameter[1];
-            //animalModel.Sqlprms[0] = new SqlParameter("@AnimalCD", animalModel.AnimalCD);
-            //return cKMDL.SelectJson("Animal_Select", ff.GetConnectionWithDefaultPath("ReactTest"), animalModel.Sqlprms);
+            // return "testApi";
+            animalModel.Sqlprms = new SqlParameter[1];
+            animalModel.Sqlprms[0] = new SqlParameter("@AnimalCD", animalModel.AnimalCD);
+            return cKMDL.SelectJson("Animal_Select", ff.GetConnectionWithDefaultPath("ReactTest"), animalModel.Sqlprms);
         }
         public string AnimalCUD(AnimalModel animalModel)
         {

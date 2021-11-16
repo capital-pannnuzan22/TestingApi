@@ -13,6 +13,7 @@ namespace Testing.Controllers
     {
         [System.Web.Mvc.AcceptVerbs("GET", "POST")]
         [System.Web.Mvc.HttpGet]
+        //[HttpPost]
         public IHttpActionResult GetAnimal([FromBody] AnimalModel animalModel)
         {
             AnimalBL animalBL = new AnimalBL();
