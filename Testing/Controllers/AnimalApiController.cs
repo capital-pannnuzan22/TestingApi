@@ -11,8 +11,8 @@ namespace Testing.Controllers
 {
     public class AnimalApiController : ApiController
     {
-        [HttpPost]
-        [ActionName("GetAnimal")]
+        [System.Web.Mvc.AcceptVerbs("GET", "POST")]
+        [System.Web.Mvc.HttpGet]
         public IHttpActionResult GetAnimal([FromBody] AnimalModel animalModel)
         {
             AnimalBL animalBL = new AnimalBL();
@@ -25,6 +25,14 @@ namespace Testing.Controllers
         {
             AnimalBL animalBL = new AnimalBL();
             return Ok(animalBL.AnimalCUD(animalModel));
+        }
+
+        [System.Web.Mvc.AcceptVerbs("GET", "POST")]
+        [System.Web.Mvc.HttpGet]
+        public IHttpActionResult GetTestApi([FromBody] AnimalModel animalModel)
+        {
+            AnimalBL animalBL = new AnimalBL();
+            return Ok(animalBL.GetTestApi(animalModel));
         }
     }
 }
