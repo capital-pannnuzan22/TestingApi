@@ -7,8 +7,8 @@ namespace Testing.Controllers
     public class TestingAPIController : ApiController
     {
 
-        [HttpPost]
-        [ActionName("GetData")]
+        [System.Web.Mvc.AcceptVerbs("GET", "POST")]
+        [System.Web.Mvc.HttpGet]
         public IHttpActionResult GetData([FromBody] Testing_Model testingmodel)
         {
             Testing_BL TestingBL = new Testing_BL();
@@ -18,10 +18,18 @@ namespace Testing.Controllers
 
         [HttpPost]
         [ActionName("TestingCUD")]
-        public IHttpActionResult TestingCUD([FromBody] Testing_Model animalModel)
+        public IHttpActionResult TestingCUD([FromBody] Testing_Model testingmodel)
         {
             Testing_BL TestingBL = new Testing_BL();
-            return Ok(TestingBL.TestingCUD(animalModel));
+            return Ok(TestingBL.TestingCUD(testingmodel));
+        }
+
+        [System.Web.Mvc.AcceptVerbs("GET", "POST")]
+        [System.Web.Mvc.HttpGet]
+        public IHttpActionResult GetTestApi([FromBody] Testing_Model testingmodel)
+        {
+            Testing_BL TestingBL = new Testing_BL();
+            return Ok(TestingBL.GetData(testingmodel));
         }
 
         //[HttpPost]
