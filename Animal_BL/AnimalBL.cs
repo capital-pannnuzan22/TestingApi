@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Animal_BL
 {
@@ -19,12 +20,14 @@ namespace Animal_BL
             cKMDL = new CKMDL();
             ff = new FileFunction();
         }
-        public string GetAnimal(AnimalModel animalModel)
+        public JObject GetAnimal(AnimalModel animalModel)
         {
             // return "testApi";
             animalModel.Sqlprms = new SqlParameter[1];
             animalModel.Sqlprms[0] = new SqlParameter("@AnimalCD", animalModel.AnimalCD);
-            return cKMDL.SelectJson("Animal_Select", ff.GetConnectionWithDefaultPath("ReactTest"), animalModel.Sqlprms);
+            string str = cKMDL.SelectJson("Animal_Select", ff.GetConnectionWithDefaultPath("ReactTest"), animalModel.Sqlprms);
+            var jObject = JObject.Parse(str);
+            return jObject;
         }
         public string AnimalCUD(AnimalModel animalModel)
         {
