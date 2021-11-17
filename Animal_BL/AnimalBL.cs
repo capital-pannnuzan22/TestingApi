@@ -26,8 +26,10 @@ namespace Animal_BL
             animalModel.Sqlprms = new SqlParameter[1];
             animalModel.Sqlprms[0] = new SqlParameter("@AnimalCD", animalModel.AnimalCD);
             string str = cKMDL.SelectJson("Animal_Select", ff.GetConnectionWithDefaultPath("ReactTest"), animalModel.Sqlprms);
-            var jObject = JObject.Parse(str);
-            return jObject;
+            JArray jsonArray = JArray.Parse(str);
+            dynamic data = JObject.Parse(jsonArray[0].ToString());
+            //var jObject = JObject.Parse(str);
+            return data;
         }
         public string AnimalCUD(AnimalModel animalModel)
         {
