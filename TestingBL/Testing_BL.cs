@@ -67,12 +67,12 @@ namespace TestingBL
 
         public string TestingSelect(Testing_Model testingmodel)
         {
-            return "testApi";
-            //cKMDL.UseTran = true;
-            //testingmodel.Sqlprms = new SqlParameter[1];
-            //testingmodel.Sqlprms[0] = new SqlParameter("@ID", testingmodel.ID);
+            //return "testApi";
+            cKMDL.UseTran = true;
+            testingmodel.Sqlprms = new SqlParameter[1];
+            testingmodel.Sqlprms[0] = new SqlParameter("@ID", testingmodel.ID);
 
-            //return cKMDL.SelectJson("TestingSelect", ff.GetConnectionWithDefaultPath("ReactTest"), testingmodel.Sqlprms);
+            return cKMDL.SelectJson("TestingSelect", ff.GetConnectionWithDefaultPath("ReactTest"), testingmodel.Sqlprms);
         }
 
         public string GetData(Testing_Model testingmodel)
